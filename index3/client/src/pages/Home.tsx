@@ -929,8 +929,8 @@ function ContactSection() {
     {
       icon: MapPin,
       label: "Endereço",
-      value: "Contagem, MG – Brasil",
-      href: "https://maps.google.com/?q=Contagem,MG",
+      value: "Rua Costa Capanema, 280 Jardim Industrial — Contagem, MG",
+      href: "https://maps.app.goo.gl/4Li1AQkA34Smp3wk7",
     },
   ];
 
@@ -1357,7 +1357,7 @@ function Footer() {
             os direitos reservados.
           </p>
           <p className="font-body text-white/30 text-xs">
-            Contagem, MG – Brasil
+            Rua Costa Capanema, 280 Jardim Industrial — Contagem, MG
           </p>
         </div>
       </div>

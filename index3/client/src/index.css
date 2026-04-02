@@ -1,0 +1,360 @@
+/* ============================================================
+   SEESTEC - Engenharia e Tecnologia
+   Design: Brutalismo Industrial Moderno
+   Paleta: Verde Escuro (#1a3d1a) + Verde Médio (#4a7c2f) + Cinza Industrial
+   Tipografia: Rajdhani (títulos) + Inter (corpo)
+   ============================================================ */
+
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+
+  /* Seestec Custom Colors */
+  --color-seestec-green-dark: oklch(0.25 0.09 145);
+  --color-seestec-green-mid: oklch(0.42 0.12 145);
+  --color-seestec-green-light: oklch(0.55 0.14 145);
+  --color-seestec-green-olive: oklch(0.52 0.10 130);
+  --color-seestec-gray-dark: oklch(0.22 0 0);
+  --color-seestec-gray-mid: oklch(0.45 0 0);
+  --color-seestec-gray-light: oklch(0.93 0 0);
+  --color-seestec-whatsapp: oklch(0.65 0.18 155);
+}
+
+:root {
+  /* Seestec Brand Colors */
+  --seestec-green-dark: #1a3d1a;
+  --seestec-green-mid: #2d6a2d;
+  --seestec-green-light: #4a7c2f;
+  --seestec-green-olive: #6b8c3a;
+  --seestec-green-accent: #5cb85c;
+  --seestec-whatsapp: #25D366;
+
+  /* Primary = Seestec Green Dark */
+  --primary: oklch(0.25 0.09 145);
+  --primary-foreground: oklch(0.98 0 0);
+
+  /* Secondary = Seestec Green Mid */
+  --secondary: oklch(0.42 0.12 145);
+  --secondary-foreground: oklch(0.98 0 0);
+
+  /* Accent = Seestec Green Olive */
+  --accent: oklch(0.52 0.10 130);
+  --accent-foreground: oklch(0.98 0 0);
+
+  --radius: 0.25rem;
+  --background: oklch(0.98 0 0);
+  --foreground: oklch(0.18 0.005 285);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.18 0.005 285);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.18 0.005 285);
+  --muted: oklch(0.94 0.002 286);
+  --muted-foreground: oklch(0.52 0.016 286);
+  --destructive: oklch(0.577 0.245 27.325);
+  --destructive-foreground: oklch(0.985 0 0);
+  --border: oklch(0.88 0.004 286);
+  --input: oklch(0.88 0.004 286);
+  --ring: oklch(0.25 0.09 145);
+  --chart-1: oklch(0.25 0.09 145);
+  --chart-2: oklch(0.42 0.12 145);
+  --chart-3: oklch(0.52 0.10 130);
+  --chart-4: oklch(0.55 0.14 145);
+  --chart-5: oklch(0.65 0.18 155);
+  --sidebar: oklch(0.98 0 0);
+  --sidebar-foreground: oklch(0.18 0.005 285);
+  --sidebar-primary: oklch(0.25 0.09 145);
+  --sidebar-primary-foreground: oklch(0.98 0 0);
+  --sidebar-accent: oklch(0.94 0.002 286);
+  --sidebar-accent-foreground: oklch(0.18 0.005 285);
+  --sidebar-border: oklch(0.88 0.004 286);
+  --sidebar-ring: oklch(0.25 0.09 145);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 1280px;
+    }
+  }
+
+  /* Seestec Custom Components */
+  .font-display {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-body {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .seestec-btn-primary {
+    background-color: var(--seestec-green-dark);
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.875rem 2rem;
+    border: 2px solid var(--seestec-green-dark);
+    transition: all 0.2s ease;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .seestec-btn-primary:hover {
+    background-color: var(--seestec-green-mid);
+    border-color: var(--seestec-green-mid);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(26, 61, 26, 0.35);
+  }
+
+  .seestec-btn-outline {
+    background-color: transparent;
+    color: white;
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 700;
+    font-size: 1rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.875rem 2rem;
+    border: 2px solid white;
+    transition: all 0.2s ease;
+    clip-path: polygon(8px 0%, 100% 0%, calc(100% - 8px) 100%, 0% 100%);
+  }
+
+  .seestec-btn-outline:hover {
+    background-color: white;
+    color: var(--seestec-green-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(255, 255, 255, 0.2);
+  }
+
+  .seestec-section-tag {
+    font-family: 'Rajdhani', sans-serif;
+    font-weight: 600;
+    font-size: 0.8rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--seestec-green-light);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .seestec-section-tag::before {
+    content: '';
+    display: inline-block;
+    width: 2rem;
+    height: 2px;
+    background-color: var(--seestec-green-light);
+  }
+
+  .hexagon-clip {
+    clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+  }
+
+  .diagonal-cut-bottom {
+    clip-path: polygon(0 0, 100% 0, 100% 92%, 0 100%);
+  }
+
+  .diagonal-cut-top {
+    clip-path: polygon(0 8%, 100% 0, 100% 100%, 0 100%);
+    margin-top: -4rem;
+    padding-top: 6rem;
+  }
+
+  .circuit-bg {
+    background-image: 
+      radial-gradient(circle at 20% 50%, rgba(26, 61, 26, 0.05) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, rgba(74, 124, 47, 0.05) 0%, transparent 50%);
+  }
+
+  /* Scroll reveal animation */
+  .reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* WhatsApp button pulse */
+  @keyframes whatsapp-pulse {
+    0% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.5); }
+    70% { box-shadow: 0 0 0 15px rgba(37, 211, 102, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(37, 211, 102, 0); }
+  }
+
+  .whatsapp-pulse {
+    animation: whatsapp-pulse 2s infinite;
+  }
+
+  /* Service card hover */
+  .service-card {
+    transition: all 0.3s ease;
+    border-left: 3px solid transparent;
+  }
+
+  .service-card:hover {
+    border-left-color: var(--seestec-green-light);
+    transform: translateX(4px);
+    box-shadow: -4px 0 20px rgba(26, 61, 26, 0.1);
+  }
+
+  /* Stats counter animation */
+  @keyframes count-up {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .stat-item {
+    animation: count-up 0.6s ease forwards;
+  }
+
+  /* Form input focus */
+  .seestec-input {
+    border: 1px solid #d1d5db;
+    border-bottom: 2px solid #d1d5db;
+    transition: all 0.2s ease;
+    background: white;
+    font-family: 'Inter', sans-serif;
+  }
+
+  .seestec-input:focus {
+    border-bottom-color: var(--seestec-green-dark);
+    outline: none;
+    box-shadow: 0 2px 0 0 var(--seestec-green-dark);
+  }
+
+  /* Navbar scroll effect */
+  .navbar-scrolled {
+    background-color: rgba(26, 61, 26, 0.97);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  }
+
+  /* Mobile menu */
+  .mobile-menu-enter {
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  @keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Client logo grayscale hover */
+  .client-logo {
+    filter: grayscale(100%) opacity(0.6);
+    transition: all 0.3s ease;
+  }
+
+  .client-logo:hover {
+    filter: grayscale(0%) opacity(1);
+    transform: scale(1.05);
+  }
+
+  /* Diagonal section divider */
+  .section-divider-green {
+    background: linear-gradient(135deg, var(--seestec-green-dark) 0%, var(--seestec-green-mid) 100%);
+  }
+
+  /* Text gradient */
+  .text-gradient-green {
+    background: linear-gradient(135deg, #4a7c2f 0%, #1a3d1a 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+}

@@ -1,5 +1,5 @@
 {
-  "homepage": "http://{username}.github.io/{repo-name}",
+  "homepage": "https://seestec.github.io/seestec/index3/dist/public",
   "name": "seestec-landing",
   "version": "1.0.0",
   "type": "module",
@@ -12,7 +12,7 @@
     "check": "tsc --noEmit",
     "format": "prettier --write .",
     "predeploy": "npm run build" ,
-    "deploy": "gh-pages -d build"
+    "deploy": "gh-pages -d dist/public"
   },
   "dependencies": {
     "@hookform/resolvers": "^5.2.2",
